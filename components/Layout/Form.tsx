@@ -1,5 +1,4 @@
 import React, { InputHTMLAttributes, FormEvent, ReactNode, Fragment } from 'react'
-import Router from 'next/router'
 import styled from 'styled-components'
 import Tooltip from 'react-tooltip'
 import { Flex } from 'rebass'
@@ -11,11 +10,9 @@ declare interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 declare interface FormInterface {
-  to: string
-  method: 'POST' | 'GET' | 'PUT' | 'DELETE'
+  sendForm: (event: FormEvent<HTMLFormElement>) => void
   children?: ReactNode
   body: InputProps[]
-  action: string
 }
 
 const StyledForm = styled.form`
@@ -34,30 +31,9 @@ const StyledForm = styled.form`
   }
 `
 
-const Form = ({ to, action, method, children, body }: FormInterface) => {
-  const sendForm = (e: FormEvent<HTMLFormElement>) => {
-    const formElement = e.currentTarget
-
-    const formContent = new FormData(formElement)
-
-    if (!formElement.reportValidity()) {
-      fetch(action, {
-        method,
-        body: formContent,
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      })
-        .then((res: Response) => {
-          res.status === 200 ? Router.push(to) : console.log(res.status)
-        })
-        .catch((e: ErrorEvent) => console.log(e.message))
-    }
-  }
-
+const Form = ({ sendForm, children, body }: FormInterface) => {
   return (
-    <StyledForm method={method} action={action} onSubmit={sendForm}>
+    <StyledForm onSubmit={sendForm}>
       {body.map((field: InputProps, i: number) => (
         <Fragment>
           <Flex>
@@ -73,7 +49,6 @@ const Form = ({ to, action, method, children, body }: FormInterface) => {
               </Fragment>
             )}
           </Flex>
-
           <Input key={i} {...field} />
         </Fragment>
       ))}

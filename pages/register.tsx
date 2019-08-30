@@ -1,21 +1,50 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useRef, FormEvent } from 'react'
 import { Heading } from 'rebass'
+import Router from 'next/router'
 import { Button, BasicContainer, Page } from '../components/Primitives'
 import NavBar from '../components/Layout/NavBar'
 import Form from '../components/Layout/Form'
+import { newPwd, getCaptcha, registerFormBody } from '../lib/form'
+import 'isomorphic-unfetch'
 
 const Register = () => {
   const [name, setName] = useState<string>('')
   const [pwd, setPwd] = useState<string>('')
   const [pwdLevel, setPwdLevel] = useState<string>('off')
+  const [captchaId, setCaptchaId] = useState<string>('')
+  const [validCaptcha, setValidCaptcha] = useState(false)
 
-  const newPwd = () => {
-    fetch(`${process.env.API}/rand${pwdLevel === 'on' ? '' : '_dict'}`)
-      .then(res => res.text())
-      .then(text => setPwd(text))
+  const sendForm = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const formElement = e.currentTarget
+
+    const formContent = new FormData(formElement)
+
+    if (!formElement.reportValidity()) {
+      fetch(`${process.env.API}/reg`, {
+        method: 'POST',
+        body: formContent,
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'X-Captcha-Id': captchaId
+        }
+      })
+        .then((res: Response) => {
+          res.status === 200 || 301 ? Router.push('/verify_email') : console.log(res.status)
+        })
+        .catch((e: ErrorEvent) => console.log(e.message))
+    }
   }
 
-  useEffect(newPwd, [pwdLevel])
+  const captcha = useRef<HTMLImageElement>(null)
+
+  useEffect(() => newPwd(setPwd, pwdLevel), [pwdLevel])
+  useEffect(() => {
+    getCaptcha(captcha, setCaptchaId)
+  }, [validCaptcha])
+
   return (
     <Fragment>
       <NavBar />
@@ -24,36 +53,7 @@ const Register = () => {
           Hello {name}!
         </Heading>
         <BasicContainer>
-          <Form
-            to="/"
-            action={`${process.env.API}/reg`}
-            body={[
-              {
-                name: 'username',
-                type: 'text',
-                required: true,
-                onInput: e => setName(e.currentTarget.value),
-                placeholder: 'How we can call you?',
-                slug: 'Username'
-              },
-              {
-                slug: 'Email',
-                name: 'email',
-                type: 'email',
-                required: true,
-                placeholder: 'hello@example.com',
-                help: 'Email is only used for verification link and nothing else.'
-              },
-              {
-                slug: 'Password',
-                name: 'password',
-                value: pwd,
-                readOnly: true,
-                help:
-                  'For better security, an algorithm generates a password instead of a person. It removes the human factor with passwords like "P@$$word123"'
-              }
-            ]}
-            method="POST">
+          <Form body={registerFormBody(setName, pwd)} sendForm={sendForm}>
             <div>
               Complex password:
               <input
@@ -62,8 +62,12 @@ const Register = () => {
                 value={pwdLevel}
                 onClick={() => setPwdLevel(pwdLevel === 'on' ? 'off' : 'on')}
               />
+              <div>
+                <input />
+                <img ref={captcha} />
+              </div>
             </div>
-            <Button type="button" variant="primary" onClick={newPwd}>
+            <Button type="button" variant="primary" onClick={() => newPwd(setPwd, pwdLevel)}>
               Create password
             </Button>
             <Button variant="secondary" type="submit">

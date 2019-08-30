@@ -3,6 +3,6 @@ const withImages = require('next-images')
 module.exports = withImages({
   target: 'serverless',
   env: {
-    API: process.env.NODE_ENV === 'production' ? 'https://api.komfy.now.sh' : 'http://localhost:8080'
+    API: 'https://api.komfy.now.sh'
   }
 })
