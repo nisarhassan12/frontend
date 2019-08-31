@@ -1,0 +1,9 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*"],
+  "projectId": "b2n6vi",
+  "video": false,
+  "cypress-plugin-snapshots": {
+    "updateSnapshots": true
+  }
+}

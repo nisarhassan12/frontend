@@ -1,14 +1,17 @@
 import { encode as arrayBufferToBase64 } from 'base64-arraybuffer'
 import { RefObject, FormEvent } from 'react'
+import 'isomorphic-unfetch'
 
-export const verifyCaptcha = (digits: string, setValidCaptcha: Function) => {
-  fetch(`${process.env.API}/captcha/verify?digits=${digits}`).then(res => {
-    if (res.status === 200) {
-      setValidCaptcha(true)
-    } else {
-      setValidCaptcha(false)
-    }
-  })
+export const verifyCaptcha = async (digits: string) => {
+  const res = await fetch(`${process.env.API}/captcha/verify?digits=${digits}`)
+
+  console.log(res.status)
+
+  if (res.status === 200) {
+    return true
+  } else if (res.status === 400) {
+    return false
+  }
 }
 
 export const getCaptcha = (captcha: RefObject<HTMLImageElement>, setCaptchaId: Function) => {

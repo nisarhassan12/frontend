@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import Link from 'next/link'
-import { Flex, Image } from 'rebass'
+import { Flex } from 'rebass'
 import styled from 'styled-components'
 
 declare interface NavBarInterface {
@@ -21,11 +21,16 @@ const LinksGroup = styled.div`
 `
 
 const StyledNav = styled(Flex)`
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 2em 0.5em 1em;
   background: ${({ theme }) => theme.colors.background};
   position: fixed;
   top: 0;
   left: 0;
+`
+
+const Icon = styled.img`
+  height: ${({ theme }) => theme.icon};
+  width: 100%;
 `
 
 const NavBar = ({
@@ -44,7 +49,7 @@ const NavBar = ({
     <StyledNav flexWrap="wrap" flexDirection="row" width={1} alignItems="center" justifyContent="space-between">
       <Link href="/">
         <a>
-          <Image height="7vh" width="100%" src="../../static/logo.svg" />
+          <Icon src="../../static/logo.svg" />
         </a>
       </Link>
       <LinksGroup>

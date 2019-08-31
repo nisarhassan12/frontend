@@ -20,7 +20,7 @@ const StyledForm = styled.form`
     color: black;
   }
   h2 {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 0.5em;
     display: inline-block;
   }

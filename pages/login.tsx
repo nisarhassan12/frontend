@@ -22,8 +22,7 @@ const Login = () => {
         </Heading>
         <BasicContainer>
           <Form
-            to="/"
-            action={`${process.env.API}/auth`}
+            sendForm={() => {}}
             body={[
               {
                 slug: 'Username',
@@ -39,8 +38,7 @@ const Login = () => {
                 placeholder: 'What was your password?',
                 required: true
               }
-            ]}
-            method="POST">
+            ]}>
             <Button variant="secondary" type="submit">
               Sign In
             </Button>

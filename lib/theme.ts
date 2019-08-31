@@ -3,7 +3,7 @@ export default {
   colors: {
     background: 'black'
   },
-  icon: 'calc(100% + 6vw)',
+  icon: '50px',
   primary: {
     button: {
       color: 'white',

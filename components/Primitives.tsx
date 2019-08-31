@@ -21,15 +21,15 @@ export const Button = styled.button<{ variant: string }>`
 export const Input = styled.input`
   border-radius: 2rem;
   border: none;
-  padding: 0.8rem;
+  padding: 0.6rem;
   background: ${({ theme }) => theme.primary.input.background};
 `
 
 export const HelpButton = styled.a`
   border: none;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 2;
-  margin-left: 0.3em;
+  margin-left: 0.2em;
   display: inline-block;
   text-align: center;
   margin-top: 0;

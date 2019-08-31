@@ -52,7 +52,8 @@
     "start": "env NODE_ENV=production next start",
     "build": "next build",
     "dev": "next",
-    "test": "cypress run --record --key b506e1ae-9bf9-41fb-bdb9-379fecba0221",
+    "test": "cypress run --record",
+    "test:update": "cypress run --record -c update.cypress.json",
     "cy:open": "cypress open",
     "cy:verify": "cypress verify",
     "ci": "start-server-and-test start http://localhost:3000 test"
