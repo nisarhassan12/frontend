@@ -15,14 +15,16 @@ const Register = () => {
   const [captchaId, setCaptchaId] = useState<string>('')
   const [captchaText, setCaptchaText] = useState<string>('')
 
-  const sendForm = (e: FormEvent<HTMLFormElement>) => {
+  const sendForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     console.log(captchaText)
 
-    verifyCaptcha(captchaText).then(a => console.log(a))
+    const captchaIsValid = await verifyCaptcha(captchaText, captchaId)
 
-    if (verifyCaptcha(captchaText)) {
+    console.log(captchaIsValid)
+
+    if (captchaIsValid) {
       const formElement = e.currentTarget
 
       const formContent = new FormData(formElement)

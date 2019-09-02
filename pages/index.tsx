@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import { Query, QueryResult } from 'react-apollo'
-import { gql, DocumentNode } from 'apollo-boost'
+// import { Query, QueryResult } from 'react-apollo'
+// import { gql, DocumentNode } from 'apollo-boost'
 import NavBar from '../components/Layout/NavBar'
 import { Heading } from 'rebass'
 import { Page } from '../components/Primitives'
@@ -41,12 +41,6 @@ const links = [
 ]
 
 const Index = () => {
-  const HELLO_WORLD: DocumentNode = gql`
-    query myQuery {
-      hello
-    }
-  `
-
   return (
     <Fragment>
       <NavBar />
@@ -71,14 +65,14 @@ const Index = () => {
           I&apos;ll answer all questions here:&nbsp;
           <a href="https://t.me/talentless_guy">@talentless_guy</a>
         </p>
-        <Query query={HELLO_WORLD}>
+        {/* <Query query={HELLO_WORLD}>
           {({ loading, error, data }: QueryResult) => {
             if (error) return <h1>{error}</h1>
             if (loading || !data) return <div>Loading</div>
 
             return <div>{JSON.stringify(data)}</div>
           }}
-        </Query>
+        </Query> */}
       </Page>
     </Fragment>
   )
