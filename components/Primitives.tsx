@@ -27,9 +27,9 @@ export const Input = styled.input`
 
 export const HelpButton = styled.a`
   border: none;
-  font-size: 1.5em;
+  font-size: 1em;
   line-height: 2;
-  margin-left: 0.2em;
+  margin-left: 0.1em;
   display: inline-block;
   text-align: center;
   margin-top: 0;

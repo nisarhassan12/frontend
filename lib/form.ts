@@ -10,8 +10,6 @@ export const verifyCaptcha = async (digits: string, captchaId: string): Promise<
     }
   })
 
-  console.log(res.statusText)
-
   if (res.status === 200) {
     return true
   } else {

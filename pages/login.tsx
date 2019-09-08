@@ -22,7 +22,7 @@ const Login = () => {
         </Heading>
         <BasicContainer>
           <Form
-            sendForm={() => {}}
+            onSubmit={() => {}}
             body={[
               {
                 slug: 'Username',

@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect, useRef, FormEvent } from 'react'
 import { Heading } from 'rebass'
-// import Router from 'next/router'
+import Router from 'next/router'
 import { Button, BasicContainer, Page } from '../components/Primitives'
 import NavBar from '../components/Layout/NavBar'
 import Form from '../components/Layout/Form'
@@ -14,22 +14,21 @@ const Register = () => {
   const [pwdLevel, setPwdLevel] = useState<string>('off')
   const [captchaId, setCaptchaId] = useState<string>('')
   const [captchaText, setCaptchaText] = useState<string>('')
+  const [err, setErr] = useState<string>('')
 
   const sendForm = async (e: FormEvent<HTMLFormElement>) => {
+    const formElement = e.currentTarget
+
     e.preventDefault()
 
-    console.log(captchaText)
+    console.log(formElement)
 
     const captchaIsValid = await verifyCaptcha(captchaText, captchaId)
 
-    console.log(captchaIsValid)
-
     if (captchaIsValid) {
-      const formElement = e.currentTarget
-
       const formContent = new FormData(formElement)
 
-      if (!formElement.reportValidity()) {
+      if (formElement.reportValidity()) {
         fetch(`${process.env.API}/reg`, {
           method: 'POST',
           body: formContent,
@@ -40,13 +39,12 @@ const Register = () => {
           }
         })
           .then((res: Response) => {
-            console.log(res.status)
-            // res.status === 200 || 301 ? Router.push('/verify_email') : console.log(res.status)
+            res.status === 200 || 301 ? Router.push('/verify_email') : setErr(err)
           })
           .catch((e: ErrorEvent) => console.log(e.message))
       }
     } else {
-      if (window) alert('Wrong captcha!')
+      setErr('Captcha did not match')
       getCaptcha(captcha, setCaptchaId)
     }
   }
@@ -65,7 +63,7 @@ const Register = () => {
           Hello {name}!
         </Heading>
         <BasicContainer>
-          <Form body={registerFormBody(setName, pwd)} sendForm={sendForm}>
+          <Form body={registerFormBody(setName, pwd)} onSubmit={sendForm}>
             <div>
               Complex password:
               <input
@@ -82,6 +80,7 @@ const Register = () => {
             <Button variant="secondary" type="submit">
               Submit
             </Button>
+            {err}
           </Form>
         </BasicContainer>
       </Page>

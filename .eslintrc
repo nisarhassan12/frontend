@@ -13,16 +13,6 @@
       "jsx": true
     }
   },
-  "rules": {
-    "semi": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/member-delimiter-style": "off",
-    "object-property-newline": "off",
-    "object-curly-newline": "off",
-    "array-bracket-newline": "off",
-    "quotes": ["off", "single"]
-  },
   "settings": {
     "react": {
       "version": "detect"

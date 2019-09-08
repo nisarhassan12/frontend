@@ -10,7 +10,7 @@ declare interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 declare interface FormInterface {
-  sendForm: (event: FormEvent<HTMLFormElement>) => void
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void
   children?: ReactNode
   body: InputProps[]
 }
@@ -31,9 +31,9 @@ const StyledForm = styled.form`
   }
 `
 
-const Form = ({ sendForm, children, body }: FormInterface) => {
+const Form = ({ onSubmit, children, body }: FormInterface) => {
   return (
-    <StyledForm onSubmit={sendForm}>
+    <StyledForm onSubmit={onSubmit}>
       {body.map((field: InputProps, i: number) => (
         <Fragment>
           <Flex>
