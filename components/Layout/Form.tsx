@@ -35,7 +35,7 @@ const Form = ({ onSubmit, children, body }: FormInterface) => {
   return (
     <StyledForm onSubmit={onSubmit}>
       {body.map((field: InputProps, i: number) => (
-        <Fragment>
+        <Fragment key={i}>
           <Flex>
             <h2>{field.slug}</h2>
             {field.help && (

@@ -21,8 +21,6 @@ const Register = () => {
 
     e.preventDefault()
 
-    console.log(formElement)
-
     const captchaIsValid = await verifyCaptcha(captchaText, captchaId)
 
     if (captchaIsValid) {
@@ -32,7 +30,6 @@ const Register = () => {
         fetch(`${process.env.API}/reg`, {
           method: 'POST',
           body: formContent,
-          credentials: 'include',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'X-Captcha-Id': captchaId
