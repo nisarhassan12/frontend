@@ -38,7 +38,7 @@ const Register = () => {
           }
         })
           .then((res: Response) => {
-            res.status === 200 || 301 ? Router.push('/verify_email') : setErr(err)
+            res.status === 200 || res.status === 301 ? Router.push('/verify_email') : setErr(err)
           })
           .catch((e: ErrorEvent) => setErr(e.error))
       }
