@@ -22,7 +22,8 @@ export const getCaptcha = (captcha: RefObject<HTMLImageElement>, setCaptchaId: F
     method: 'GET'
   })
     .then(res => {
-      setCaptchaId(res.headers.get('X-Captcha-Id'))
+      const id = res.headers.get('X-Captcha-Id')
+      setCaptchaId(id)
       return res.arrayBuffer()
     })
     .then(buf => {

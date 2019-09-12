@@ -23,6 +23,8 @@ const Register = () => {
 
     const captchaIsValid = await verifyCaptcha(captchaText, captchaId)
 
+    console.log(captchaIsValid)
+
     if (captchaIsValid) {
       const formContent = new FormData(formElement)
 
@@ -32,13 +34,13 @@ const Register = () => {
           body: formContent,
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'X-Captcha-Id': captchaId
+            'X-Captcha': `${captchaId}:${captchaText}`
           }
         })
           .then((res: Response) => {
             res.status === 200 || 301 ? Router.push('/verify_email') : setErr(err)
           })
-          .catch((e: ErrorEvent) => console.log(e.message))
+          .catch((e: ErrorEvent) => setErr(e.error))
       }
     } else {
       setErr('Captcha did not match')
