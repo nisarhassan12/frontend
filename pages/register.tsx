@@ -37,8 +37,8 @@ const Register = () => {
             'X-Captcha': `${captchaId}:${captchaText}`
           }
         })
-          .then((res: Response) => {
-            res.status === 200 || res.status === 301 ? Router.push('/verify_email') : setErr(err)
+          .then(async (res: Response) => {
+            res.status === 200 || res.status === 301 ? Router.push('/verify_email') : setErr(await res.text())
           })
           .catch((e: ErrorEvent) => setErr(e.error))
       }
