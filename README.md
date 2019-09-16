@@ -16,7 +16,10 @@ It is currently in active development.
 
 Komfy uses Next.js, TypeScript, GraphQL Apollo, Rebass and Styled Components
 
-Coming soon...
+* `pages` – Next.js pages
+* `lib` – non-UI functions
+* `components` – used by `pages`
+* `assets` – mostly graphics
 
 ## Build
 
