@@ -14,7 +14,17 @@ It is currently in active development.
 
 ## Project structure
 
-Komfy uses Next.js, TypeScript, GraphQL Apollo, Rebass and Styled Components
+* **Next.js** React SSR Framework
+* **TypeScript** typed JS
+* **GraphQL** better alternative to classic REST
+* **Apollo** client for GraphQL
+* **Rebass** Component library
+* **Styled Components** Visual primitives for styling components
+* **Cypress** E2E Testing
+* **Travis** CI
+* **Codecov** Coverage
+
+### Directories
 
 * `pages` – Next.js pages
 * `lib` – non-UI functions
