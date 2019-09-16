@@ -14,6 +14,8 @@ It is currently in active development.
 
 ## Project structure
 
+### Tools used
+
 * **Next.js** React SSR Framework
 * **TypeScript** typed JS
 * **GraphQL** better alternative to classic REST
