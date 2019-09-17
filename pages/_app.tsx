@@ -4,6 +4,7 @@ import App from 'next/app'
 import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-boost'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import 'typeface-source-sans-pro'
 import withApollo from '../lib/apollo'
 import theme from '../lib/theme'
 
@@ -14,10 +15,15 @@ declare interface Props {
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    font-family: ${theme.font}, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   html, body, #__next {
-    height: 100%
+    height: 100%;
+  }
+  * {
+    font-family: ${theme.fonts.body};
+  }
+  pre {
+    font-family: ${theme.fonts.monospace};
   }
 `
 

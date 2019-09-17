@@ -1,17 +1,12 @@
 import React, { RefObject } from 'react'
 import { Input, HelpButton } from './Primitives'
-import { Flex } from 'rebass'
+import { Flex, Image } from 'rebass/styled-components'
 import Tooltip from 'react-tooltip'
-import styled from 'styled-components'
 
 declare interface CaptchaInterface {
   setCaptchaText: (e: any) => void
   captcha: RefObject<HTMLImageElement>
 }
-
-const CaptchaImg = styled.img`
-  height: 40px;
-`
 
 const Captcha = ({ setCaptchaText, captcha }: CaptchaInterface) => (
   <Flex flexDirection="column">
@@ -24,7 +19,12 @@ const Captcha = ({ setCaptchaText, captcha }: CaptchaInterface) => (
         We use captcha to prevent spam accounts. To complete it, just don't be a robot.
       </Tooltip>
     </Flex>
-    <CaptchaImg ref={captcha} />
+    <Image
+      sx={{
+        height: '40px'
+      }}
+      ref={captcha}
+    />
     <Input autoComplete="off" id="captcha" onChange={e => setCaptchaText(e.target.value)} placeholder="Captcha text" />
   </Flex>
 )

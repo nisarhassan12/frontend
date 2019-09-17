@@ -1,31 +1,29 @@
 export default {
-  font: 'Source Sans Pro',
-  colors: {
-    background: 'black'
+  fonts: {
+    body: '"Source Sans Pro", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+    monospace: '"Fira Code", monospace',
+    heading: 'inherit'
   },
-  icon: '50px',
-  primary: {
-    button: {
-      color: 'white',
-      background: '#1e1e1e',
-      hover: {
-        color: 'whitesmoke',
-        background: 'black'
-      }
+  radii: {
+    small: 0,
+    large: 40
+  },
+  buttons: {
+    default: {
+      borderRadius: 'large',
+      fontWeight: 'bold'
     },
-    input: {
-      color: 'black',
-      background: 'whitesmoke'
-    }
-  },
-  secondary: {
-    button: {
+    primary: {
+      background: 'black',
+      color: 'white',
+      variant: 'buttons.default'
+    },
+    secondary: {
       color: 'white',
       background: 'blue',
-      hover: {
-        background: '#000a36',
-        color: 'whitesmoke'
-      }
+      variant: 'buttons.default'
     }
-  }
+  },
+  fontSizes: [12, 16, 20, 24, 'calc(1.8em + 2vw)', 'calc(3em + 5vw)'],
+  space: [0, 4, 8, 14, 24, 36]
 }

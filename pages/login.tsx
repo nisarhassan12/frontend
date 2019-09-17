@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
-import { Flex, Heading } from 'rebass'
-import { Button, BasicContainer } from '../components/Primitives'
+import { Flex, Heading, Button } from 'rebass'
+import { BasicContainer } from '../components/Primitives'
 import NavBar from '../components/Layout/NavBar'
 import Form from '../components/Layout/Form'
 

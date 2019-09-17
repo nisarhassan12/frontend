@@ -22,14 +22,14 @@ const LinksGroup = styled.div`
 
 const StyledNav = styled(Flex)`
   padding: 0.5rem 2em 0.5em 1em;
-  background: ${({ theme }) => theme.colors.background};
+  background: black;
   position: fixed;
   top: 0;
   left: 0;
 `
 
 const Icon = styled.img`
-  height: ${({ theme }) => theme.icon};
+  height: 40px;
   width: 100%;
 `
 

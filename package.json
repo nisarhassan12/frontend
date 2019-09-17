@@ -7,6 +7,7 @@
   "author": "talentless_guy <pilll.PL22@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@rebass/forms": "^4.0.5",
     "apollo-boost": "^0.4.3",
     "base64-arraybuffer": "^0.2.0",
     "cookies": "^0.7.3",
@@ -19,8 +20,9 @@
     "react-apollo": "^2.5.8",
     "react-dom": "16.8.6",
     "react-tooltip": "^3.10.0",
-    "rebass": "^3.1.1",
-    "styled-components": "^4.3.1"
+    "rebass": "^4.0.5",
+    "styled-components": "^4.3.2",
+    "typeface-source-sans-pro": "^0.0.75"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -35,6 +37,7 @@
     "@types/styled-components": "^4.1.16",
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
+    "@zeit/next-css": "^1.0.1",
     "babel-plugin-styled-components": "^1.10.1",
     "cypress": "^3.4.1",
     "cypress-jest-adapter": "^0.1.1",
@@ -44,6 +47,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
     "jest": "^24.8.0",
+    "next-fonts": "^0.18.0",
     "next-images": "^1.1.2",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.8.6",

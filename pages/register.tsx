@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useEffect, useRef, FormEvent } from 'react'
-import { Heading } from 'rebass'
+import { Heading, Button } from 'rebass/styled-components'
+import { Checkbox, Label } from '@rebass/forms'
 import Router from 'next/router'
-import { Button, BasicContainer, Page } from '../components/Primitives'
+import { BasicContainer, Page } from '../components/Primitives'
 import NavBar from '../components/Layout/NavBar'
 import Form from '../components/Layout/Form'
 import Captcha from '../components/Captcha'
@@ -22,8 +23,6 @@ const Register = () => {
     e.preventDefault()
 
     const captchaIsValid = await verifyCaptcha(captchaText, captchaId)
-
-    console.log(captchaIsValid)
 
     if (captchaIsValid) {
       const formContent = new FormData(formElement)
@@ -58,21 +57,16 @@ const Register = () => {
     <Fragment>
       <NavBar />
       <Page alignItems="center" justifyContent="center" flexDirection="column">
-        <Heading as="h1" textAlign="center" fontSize="calc(1.8em + 2vw)">
+        <Heading as="h2" textAlign="center">
           Hello {name}!
         </Heading>
         <BasicContainer>
           <Form body={registerFormBody(setName, pwd)} onSubmit={sendForm}>
-            <div>
+            <Label>
               Complex password:
-              <input
-                type="checkbox"
-                id="check"
-                value={pwdLevel}
-                onClick={() => setPwdLevel(pwdLevel === 'on' ? 'off' : 'on')}
-              />
-              <Captcha captcha={captcha} setCaptchaText={setCaptchaText} />
-            </div>
+              <Checkbox id="check" value={pwdLevel} onClick={() => setPwdLevel(pwdLevel === 'on' ? 'off' : 'on')} />
+            </Label>
+            <Captcha captcha={captcha} setCaptchaText={setCaptchaText} />
             <Button type="button" variant="primary" onClick={() => newPwd(setPwd, pwdLevel)}>
               Create password
             </Button>
