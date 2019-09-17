@@ -48,4 +48,4 @@ yarn dev
 
 ## Contributing
 
-Coming soon...
+See [CONTRIBUTING.md](https://github.com/komfy/frontend/blob/master/CONTRIBUTING.md)
