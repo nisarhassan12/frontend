@@ -1,4 +1,4 @@
-# frontend
+# komfy/frontend
 
 ![David](https://img.shields.io/david/komfy/frontend.svg?style=flat-square)
 [![Codacy grade](https://img.shields.io/codacy/grade/88b6e166fc3f48c493ffcf500281e770.svg?style=flat-square)](https://app.codacy.com/project/komfy/frontend/dashboard)
@@ -9,11 +9,29 @@
 ![Top lang](https://img.shields.io/github/languages/top/komfy/frontend.svg?style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/komfy/frontend.svg?style=flat-square)
 
-Komfy frontend built with Next.js, React, Apollo and Styled Components
+Komfy is a protected social network without annoying trackers and context ads.
+It is currently in active development.
 
 ## Project structure
 
-Coming soon...
+### Tools used
+
+* **Next.js** React SSR Framework
+* **TypeScript** typed JS
+* **GraphQL** better alternative to classic REST
+* **Apollo** client for GraphQL
+* **Rebass** Component library
+* **Styled Components** Visual primitives for styling components
+* **Cypress** E2E Testing
+* **Travis** CI
+* **Codecov** Coverage
+
+### Directories
+
+* `pages` – Next.js pages
+* `lib` – non-UI functions
+* `components` – used by `pages`
+* `assets` – mostly graphics
 
 ## Build
 
@@ -27,3 +45,7 @@ yarn start
 ```sh
 yarn dev
 ```
+
+## Contributing
+
+Coming soon...
