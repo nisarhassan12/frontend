@@ -5,7 +5,6 @@
 [![Travis](https://img.shields.io/travis/komfy/frontend.svg?style=flat-square)](https://travis-ci.org/komfy/frontend)
 [![Codecov](https://img.shields.io/codecov/c/gh/komfy/frontend?style=flat-square)](https://codecov.io/gh/komfy/frontend)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/komfy/frontend?style=flat-square)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![Top lang](https://img.shields.io/github/languages/top/komfy/frontend.svg?style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/komfy/frontend.svg?style=flat-square)
 
