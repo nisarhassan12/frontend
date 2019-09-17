@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect, useRef, FormEvent } from 'react'
-import { Heading, Button } from 'rebass/styled-components'
+import { Button } from 'rebass/styled-components'
 import { Checkbox, Label } from '@rebass/forms'
 import Router from 'next/router'
 import { BasicContainer, Page } from '../components/Primitives'
@@ -57,9 +57,7 @@ const Register = () => {
     <Fragment>
       <NavBar />
       <Page alignItems="center" justifyContent="center" flexDirection="column">
-        <Heading as="h2" textAlign="center">
-          Hello {name}!
-        </Heading>
+        <h1>Hello {name}!</h1>
         <BasicContainer>
           <Form body={registerFormBody(setName, pwd)} onSubmit={sendForm}>
             <Label>

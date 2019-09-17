@@ -5,7 +5,7 @@ export default {
     heading: 'inherit'
   },
   radii: {
-    small: 0,
+    small: 6,
     large: 40
   },
   buttons: {
@@ -24,6 +24,5 @@ export default {
       variant: 'buttons.default'
     }
   },
-  fontSizes: [12, 16, 20, 24, 'calc(1.8em + 2vw)', 'calc(3em + 5vw)'],
   space: [0, 4, 8, 14, 24, 36]
 }

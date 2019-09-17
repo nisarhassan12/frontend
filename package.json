@@ -62,7 +62,8 @@
     "dev": "next",
     "test": "cypress run --record",
     "test:update": "cypress run --record -c update.cypress.json",
-    "cy:open": "cypress open",
+    "cy:open": "start-server-and-test start http://localhost:3000 cy:open-ui",
+    "cy:open-ui": "cypress open",
     "cy:verify": "cypress verify",
     "ci": "start-server-and-test start http://localhost:3000 test"
   },

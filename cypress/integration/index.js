@@ -5,7 +5,7 @@ describe('Index page', () => {
   })
 
   it('should match index page snapshot', () => {
-    cy.get('#__next').toMatchSnapshot()
+    cy.get('#__next').toMatchImageSnapshot()
   })
 
   it('should render logo icon', () => {

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
-import { Flex, Heading, Button } from 'rebass'
-import { BasicContainer } from '../components/Primitives'
+import { Button } from 'rebass/styled-components'
+import { BasicContainer, Page } from '../components/Primitives'
 import NavBar from '../components/Layout/NavBar'
 import Form from '../components/Layout/Form'
 
@@ -10,16 +10,8 @@ const Login = () => {
   return (
     <Fragment>
       <NavBar />
-      <Flex
-        style={{
-          height: '90vh'
-        }}
-        alignItems="center"
-        justifyContent="center"
-        flexDirection="column">
-        <Heading as="h1" textAlign="center" fontSize="calc(1.8em + 2vw)">
-          Welcome back, {name}!
-        </Heading>
+      <Page alignItems="center" justifyContent="center" flexDirection="column">
+        <h1>Welcome back, {name}!</h1>
         <BasicContainer>
           <Form
             onSubmit={() => {}}
@@ -44,7 +36,7 @@ const Login = () => {
             </Button>
           </Form>
         </BasicContainer>
-      </Flex>
+      </Page>
     </Fragment>
   )
 }

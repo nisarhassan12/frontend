@@ -3,8 +3,8 @@ import styled from 'styled-components'
 // import { Query, QueryResult } from 'react-apollo'
 // import { gql, DocumentNode } from 'apollo-boost'
 import NavBar from '../components/Layout/NavBar'
-import { Heading } from 'rebass'
 import { Page } from '../components/Primitives'
+import { Heading } from 'rebass/styled-components'
 
 /* const Status = styled.p`
   width: 40vmax;
@@ -45,7 +45,7 @@ const Index = () => {
     <Fragment>
       <NavBar />
       <Page flexDirection="column" alignItems="center" justifyContent="center">
-        <Heading as="h1" textAlign="center" fontSize="calc(1.8em + 5vw)">
+        <Heading as="h1" fontSize={['4em', '6em', '8em']}>
           Komfy
         </Heading>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'rebass'
+import { Button } from 'rebass/styled-components'
 
 const Welcome = () => {
   return (

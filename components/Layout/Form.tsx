@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, FormEvent, ReactNode, Fragment } from 'react'
 import styled from 'styled-components'
 import Tooltip from 'react-tooltip'
-import { Flex } from 'rebass'
+import { Flex } from 'rebass/styled-components'
 import { Input, HelpButton } from '../Primitives'
 
 declare interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

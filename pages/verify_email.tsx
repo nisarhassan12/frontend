@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Flex } from 'rebass'
+import { Flex } from 'rebass/styled-components'
 import { BasicContainer } from '../components/Primitives'
 import NavBar from '../components/Layout/NavBar'
 
