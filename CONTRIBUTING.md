@@ -32,7 +32,7 @@ yarn
 yarn dev
 ```
 
-If your PR needs API, then [follow the instructions]() on how to setup API locally.
+If your PR needs API, then [follow the instructions](https://github.com/komfy/api#local-setup) on how to setup API locally.
 
 # Submitting a Pull Request
 
