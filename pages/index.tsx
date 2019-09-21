@@ -50,8 +50,8 @@ const Index = () => {
         </Heading>
 
         <h2>Project Status ⚡</h2>
-        <p>
-          Komfy is a protected social network without annoying trackers and context ads. It is currently in active
+        <p style={{maxWidth: '600px', margin: '2em auto'}}>
+          Komfy is a protected social network without annoying trackers and context ads.<br/>It is currently in active
           development. User registration will be available soon.
         </p>
         <Links>

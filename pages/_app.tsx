@@ -15,6 +15,10 @@ declare interface Props {
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+    color: #293335;
+    background: #f6f6f6;
+    font-size: 17px;
+    line-height: 1.6;
   }
   html, body, #__next {
     height: 100%;
@@ -24,6 +28,28 @@ const GlobalStyle = createGlobalStyle`
   }
   pre {
     font-family: ${theme.fonts.monospace};
+  }
+
+  /* --------------------------------------- */
+  /* ----- Headings ----- */
+  /* --------------------------------------- */
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1;
+  }
+
+  h1 {
+    font-weight: 300;
+  }
+
+  h2, h3 {
+    font-weight: 400;
+  }
+
+  a {
+    color: #0074D9;
   }
 `
 

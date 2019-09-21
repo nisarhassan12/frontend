@@ -10,19 +10,39 @@ declare interface NavBarInterface {
 
 const LinksGroup = styled.div`
   a {
+    display: inline-block;
+    padding-bottom: .2em;
+    position: relative;
     margin-left: 2em;
     color: whitesmoke;
     font-size: 1.2em;
     text-decoration: none;
-    &:hover {
-      text-decoration: underline;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 100%;
+        left: 0;
+        border-bottom: 1px solid whitesmoke;
+        transition: all .4s cubic-bezier(0,.5,0, 1);
     }
+
+    &:hover,
+    &:focus {
+            color: white;
+            &::after {
+                right: 0;
+                border-color: white;
+            }
+    }
+
   }
 `
 
 const StyledNav = styled(Flex)`
   padding: 0.5rem 2em 0.5em 1em;
-  background: black;
+  background: #293335;
   position: fixed;
   top: 0;
   left: 0;
